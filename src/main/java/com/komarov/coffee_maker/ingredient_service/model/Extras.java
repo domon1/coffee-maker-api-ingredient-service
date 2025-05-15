@@ -9,18 +9,19 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@Entity
+//@Entity
 public class Extras implements Serializable {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    // private Long itemId; ???
-
-    @ManyToOne
-    @JoinColumn(name = "ingredient_id")
-    private Ingredient ingredient;
+//    @Serial  // TODO нужно продумать сущность для выбранных по умолчанию ингредиентов
+               // TODO нужно продумать сущность для ингредиентов выбранных пользователем
+//    private static final long serialVersionUID = 1L;
+//
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    private Long id;
+//
+//    // private Long itemId; ???
+//
+//    @ManyToOne
+//    @JoinColumn(name = "ingredient_id")
+//    private Ingredient ingredient;
 }

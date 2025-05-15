@@ -28,4 +28,8 @@ public class Ingredient implements Serializable {
     @Column(nullable = false)
     private BigDecimal price;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id")
+    private IngredientCategory ingredientCategory;
+
 }

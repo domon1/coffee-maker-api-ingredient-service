@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,4 +25,7 @@ public class IngredientCategory implements Serializable {
 
     @Column(nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "ingredientCategory")
+    private Set<Ingredient> ingredients = new HashSet<>();
 }
