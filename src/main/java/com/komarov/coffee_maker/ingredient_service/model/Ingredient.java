@@ -38,4 +38,12 @@ public class Ingredient implements Serializable {
 
     @ManyToMany(mappedBy = "ingredients")
     private Set<Extras> extras = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "ingredients_types",
+            joinColumns = @JoinColumn(name = "ingredient_id"),
+            inverseJoinColumns = @JoinColumn(name = "type_id")
+    )
+    private Set<IngredientType> ingredientTypes;
 }

@@ -26,4 +26,9 @@ public class IngredientCategoryController {
     public ResponseEntity<IngredientCategoryDTO> findById(@PathVariable Long id){
         return ResponseEntity.ok(categoryService.findById(id));
     }
+
+    @GetMapping(path = "/type/{id}")
+    public ResponseEntity<List<IngredientCategoryDTO>> findByTypeId(@PathVariable Long id){
+        return ResponseEntity.ok(categoryService.findCategoriesByItemTypeId(id));
+    }
 }

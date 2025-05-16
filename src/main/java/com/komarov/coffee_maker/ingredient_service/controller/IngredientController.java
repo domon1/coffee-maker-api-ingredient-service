@@ -18,4 +18,9 @@ public class IngredientController {
     public ResponseEntity<?> findById(@PathVariable Long id) {
         return ResponseEntity.ok(ingredientService.findById(id));
     }
+
+    @GetMapping(path = "/item/{id}")
+    public ResponseEntity<?> findDefaultSelectedIngredientsByItemId(@PathVariable Long id) {
+        return ResponseEntity.ok(ingredientService.findDefaultSelectedIngredientsByItemId(id));
+    }
 }

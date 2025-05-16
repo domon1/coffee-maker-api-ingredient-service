@@ -27,4 +27,10 @@ public class IngredientCategoryServiceImpl implements IngredientCategoryService 
                         .orElseThrow(RuntimeException::new)  // TODO change on NotFoundException
         );
     }
+
+    @Override
+    public List<IngredientCategoryDTO> findCategoriesByItemTypeId(Long id) {
+        return categoryRepository.findCategoriesWithIngredientsByTypeId(id)
+                .stream().map(IngredientCategoryDTO::from).toList();
+    }
 }

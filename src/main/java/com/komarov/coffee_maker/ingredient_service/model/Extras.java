@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-// TODO нужно продумать сущность для доступных категорий с ингредиентами
 // TODO нужно продумать сущность для ингредиентов выбранных пользователем
 
 @Getter

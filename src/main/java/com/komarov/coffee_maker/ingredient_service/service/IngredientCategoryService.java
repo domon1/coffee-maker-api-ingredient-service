@@ -9,4 +9,5 @@ import java.util.List;
 public interface IngredientCategoryService {
     List<IngredientCategoryDTO> findAll();
     IngredientCategoryDTO findById(Long id);
+    List<IngredientCategoryDTO> findCategoriesByItemTypeId(Long id);
 }
