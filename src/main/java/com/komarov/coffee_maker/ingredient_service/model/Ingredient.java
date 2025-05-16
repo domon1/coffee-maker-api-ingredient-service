@@ -1,5 +1,6 @@
 package com.komarov.coffee_maker.ingredient_service.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,6 +8,8 @@ import lombok.Setter;
 import java.io.Serial;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -28,8 +31,11 @@ public class Ingredient implements Serializable {
     @Column(nullable = false)
     private BigDecimal price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
+    @ManyToOne
     @JoinColumn(name = "category_id")
     private IngredientCategory ingredientCategory;
 
+    @ManyToMany(mappedBy = "ingredients")
+    private Set<Extras> extras = new HashSet<>();
 }

@@ -1,7 +1,7 @@
 package com.komarov.coffee_maker.ingredient_service.controller;
 
 import com.komarov.coffee_maker.ingredient_service.model.dto.IngredientCategoryDTO;
-import com.komarov.coffee_maker.ingredient_service.service.IngredientCategoryService;
+import com.komarov.coffee_maker.ingredient_service.service.impl.IngredientCategoryServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,9 +11,9 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping(path = "api/v1/ingredient/category")
 public class IngredientCategoryController {
-    final IngredientCategoryService categoryService;
+    final IngredientCategoryServiceImpl categoryService;
 
-    public IngredientCategoryController(IngredientCategoryService categoryService) {
+    public IngredientCategoryController(IngredientCategoryServiceImpl categoryService) {
         this.categoryService = categoryService;
     }
 

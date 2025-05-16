@@ -6,22 +6,29 @@ import lombok.Setter;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+// TODO нужно продумать сущность для доступных категорий с ингредиентами
+// TODO нужно продумать сущность для ингредиентов выбранных пользователем
 
 @Getter
 @Setter
-//@Entity
-public class Extras implements Serializable {
-//    @Serial  // TODO нужно продумать сущность для выбранных по умолчанию ингредиентов
-               // TODO нужно продумать сущность для ингредиентов выбранных пользователем
-//    private static final long serialVersionUID = 1L;
-//
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-//
-//    // private Long itemId; ???
-//
-//    @ManyToOne
-//    @JoinColumn(name = "ingredient_id")
-//    private Ingredient ingredient;
+@Entity
+public class Extras implements Serializable { // selectedByDefault
+    @Serial
+    private static final long serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Long itemId;
+
+    @ManyToMany
+    @JoinTable(
+            name = "extras_ingredients",
+            joinColumns = @JoinColumn(name = "extras_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private Set<Ingredient> ingredients = new HashSet<>();
 }
